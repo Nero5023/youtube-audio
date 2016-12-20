@@ -12,10 +12,16 @@ class AudiosController < ApplicationController
     redirect_to root_path
   end
 
+
   def destroy
     @audio = Audio.find(params[:id])
     @audio.destroy
 
     redirect_to audios_path
   end
+
+  def show
+    @audio = Audio.find_by_id(params[:id])
+  end
+
 end
