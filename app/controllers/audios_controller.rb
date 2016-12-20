@@ -11,4 +11,11 @@ class AudiosController < ApplicationController
     `#{youtubuCommand}`
     redirect_to root_path
   end
+
+  def destroy
+    @audio = Audio.find(params[:id])
+    @audio.destroy
+
+    redirect_to audios_path
+  end
 end
