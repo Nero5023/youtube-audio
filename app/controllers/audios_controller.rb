@@ -6,17 +6,22 @@ class AudiosController < ApplicationController
   def create
     youtubuUrl = params[:q]
     youtubeId = youtubuUrl.split("=")[1]
-    youtubuCommand = "youtube-dl -f 140 -o " + "public/audios/#{youtubeId}" + ".%\\(ext\\)s \"" + youtubuUrl + "\""
-    puts(youtubuCommand)
-    `#{youtubuCommand}`
-    # @audio = Audio.new(youtubeId+".m4a", youtubuUrl)
-    @audio = Audio.new()
-    @audio.filename = youtubeId+".m4a"
-    @audio.url = youtubuUrl
-    @audio.title = youtubeId
-    @audio.save
+    youtubuCommand = "youtube-dl -f 140 -o public/audios/#{youtubeId}.%\\(ext\\)s \"#{youtubuUrl}\""
+    # youtubuCommand = "youtube-dl -f 140 -o public/audios/#{youtubeId}.%\\(ext\\)s \"#{youtubuUrl}\" --proxy \"http://127.0.0.1:8123\" "
 
-    redirect_to @audio
+    if(Audio.find_by_url(youtubuUrl))
+      redirect_to Audio.find_by_url(youtubuUrl)
+    else
+      puts(youtubuCommand)
+      `#{youtubuCommand}`
+      @audio = Audio.new()
+      @audio.filename = youtubeId+".m4a"
+      @audio.url = youtubuUrl
+      @audio.title = youtubeId
+      @audio.save
+      redirect_to @audio
+    end
+
   end
 
 
