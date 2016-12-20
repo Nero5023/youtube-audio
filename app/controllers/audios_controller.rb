@@ -16,12 +16,14 @@ class AudiosController < ApplicationController
     @audio.title = youtubeId
     @audio.save
 
-    redirect_to root_path
+    redirect_to @audio
   end
 
 
   def destroy
     @audio = Audio.find(params[:id])
+    filename = @audio.filename
+    `rm public/audios/#{filename}`
     @audio.destroy
 
     redirect_to audios_path
