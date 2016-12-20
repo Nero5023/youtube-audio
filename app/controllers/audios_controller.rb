@@ -7,4 +7,8 @@ class AudiosController < ApplicationController
     `#{youtubuCommand}`
     redirect_to root_path
   end
+
+  def show
+    @audio = Audio.find_by_id(params[:id])
+  end
 end
