@@ -9,7 +9,7 @@ class AudiosController < ApplicationController
     # youtubuUrl = params[:q]
     # youtubeId = youtubuUrl.split("=")[1]
     # https://www.youtube.com/watch?v=
-    youtubeId =  params[:id]
+    youtubeId =  params[:vedio_id]
     youtubuUrl = "https://www.youtube.com/watch?v=" + youtubeId
     youtubuCommand = "youtube-dl -f 140 -o public/audios/#{youtubeId}.%\\(ext\\)s \"#{youtubuUrl}\" -4"
     # youtubuCommand = "youtube-dl -f 140 -o public/audios/#{youtubeId}.%\\(ext\\)s \"#{youtubuUrl}\" --proxy \"http://127.0.0.1:8123\" "
