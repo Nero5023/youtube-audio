@@ -23,6 +23,8 @@ class AudiosController < ApplicationController
       @audio.filename = youtubeId+".m4a"
       @audio.url = youtubuUrl
       @audio.title = params[:title]
+      @audio.thumbnail_url = params[:thumbnail_url]
+      @audio.duration = params[:duration]
       @audio.save
       redirect_to @audio
     end

@@ -1,5 +1,6 @@
 
-<h1>Audio Page</h1>
+<h1><%= @audio.title %></h1>
+<td><%= image_tag @audio.thumbnail_url %></td><br>
 <%= audio_tag @audio.filename, controls: "true", autoplay: "true", autobuffer: "true" %>
 <br>
 <%= link_to 'Back', audios_path %>
