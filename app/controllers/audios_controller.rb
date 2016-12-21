@@ -6,7 +6,7 @@ class AudiosController < ApplicationController
   def create
     youtubuUrl = params[:q]
     youtubeId = youtubuUrl.split("=")[1]
-    youtubuCommand = "youtube-dl -f 140 -o public/audios/#{youtubeId}.%\\(ext\\)s \"#{youtubuUrl}\""
+    youtubuCommand = "youtube-dl -f 140 -o public/audios/#{youtubeId}.%\\(ext\\)s \"#{youtubuUrl}\" -4"
     # youtubuCommand = "youtube-dl -f 140 -o public/audios/#{youtubeId}.%\\(ext\\)s \"#{youtubuUrl}\" --proxy \"http://127.0.0.1:8123\" "
 
     if(Audio.find_by_url(youtubuUrl))
