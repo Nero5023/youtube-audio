@@ -1,3 +1,5 @@
+require 'yt'
+
 class AudiosController < ApplicationController
   def index
     @audios = Audio.all
@@ -35,6 +37,9 @@ class AudiosController < ApplicationController
   end
 
   def show
+    # Yt.configuration.api_key = 'AIzaSyAWIKMkixMDQxZtJVkAVxddzgkIjQPvkIM'
+    # videos = Yt::Collections::Videos.new
+    # puts(videos.where(order: 'viewCount').first.title)
     @audio = Audio.find_by_id(params[:id])
   end
 

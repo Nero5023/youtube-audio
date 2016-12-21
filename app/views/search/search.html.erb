@@ -1,0 +1,15 @@
+<h1>Search Result</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+  </tr>
+
+  <% @searchResults.each do |result| %>
+      <tr>
+        <td><%= result.title %></td>
+        <td><%= link_to 'Lisen', create_article_path(article) %></td>
+      </tr>
+  <% end %>
+  <%= link_to 'All downloded audios', audios_path %>
+</table>
