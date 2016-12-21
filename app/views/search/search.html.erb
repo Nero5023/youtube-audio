@@ -1,0 +1,21 @@
+<h1>Search Result</h1>
+
+<table>
+  <tr>
+    <th>Thumbnail</th>
+    <th>Title</th>
+    <th>Duration</th>
+  </tr>
+
+  <% @searchResults.each do |result| %>
+      <tr>
+        <td><%= image_tag result.thumbnail_url %></td>
+        <td><%= result.title %></td>
+        <td><%= Time.at(result.duration).utc.strftime("%H:%M:%S") %></td>
+        <td><%= link_to 'Lisen', '/audios?' + {vedio_id: result.id, title: result.title,
+                                               duration: result.duration, thumbnail_url: result.thumbnail_url}.to_param,
+                                        method: :post %></td>
+      </tr>
+  <% end %>
+  <%= link_to 'All downloded audios', audios_path %>
+</table>

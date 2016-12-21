@@ -10,14 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161220134017) do
+ActiveRecord::Schema.define(version: 20161221160910) do
 
   create_table "audios", force: :cascade do |t|
     t.string   "filename"
     t.string   "url"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
     t.string   "title"
+    t.integer  "duration"
+    t.string   "thumbnail_url"
   end
 
 end
