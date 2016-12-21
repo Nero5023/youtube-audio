@@ -9,7 +9,7 @@
   <% @audios.each do |audio| %>
       <tr>
         <td><%= audio.title %></td>
-        <td><%= Time.at(result.duration).utc.strftime("%H:%M:%S") %></td>
+        <td><%= Time.at(audio.duration).utc.strftime("%H:%M:%S") %></td>
         <td><%= link_to 'Listen', audio_path(audio) %></td>
         <td><%= link_to 'Destory', audio_path(audio),
                         method: :delete,
