@@ -1,4 +1,4 @@
-require 'yt'
+# require 'yt'
 class SearchController < ApplicationController
   def search
     Yt.configuration.api_key = 'AIzaSyAWIKMkixMDQxZtJVkAVxddzgkIjQPvkIM'
